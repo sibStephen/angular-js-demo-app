@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body ng-app="myApp" ng-controller="userCtrl">
+
+<div class="w3-container">
+
+<h3>Users</h3>
+
+<table class="w3-table w3-bordered w3-striped">
+  <tr>
+    <th>Edit</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td>{{ user.fName }}</td>
+    <td>{{ user.lName }}</td>
+     <td>
+      <button class="w3-btn w3-ripple" ng-click="editUser($index)">Edit</button>
+    </td>
+    <td>
+      <button class="w3-btn w3-ripple" ng-click="deleteUser($index)">Delete</button>
+    </td>
+  </tr>
+</table>
+<br></br>
+
+<h3 ng-if="!editMode">Create New User</h3>
+<h3 ng-if="editMode">Edit Existing User</h3>
+
+<form>
+    <label>First Name:</label>
+    <input class="w3-input w3-border" type="text" ng-model="fName" placeholder="First Name">
+  <br>
+    <label>Last Name:</label>
+    <input class="w3-input w3-border" type="text" ng-model="lName" placeholder="Last Name">
+    <br></br>
+
+<button class="w3-btn w3-green w3-ripple" ng-if="!editMode" ng-click="addUser()">Save Changes</button>
+<button class="w3-btn w3-green w3-ripple" ng-if="editMode" ng-click="addUser(editIndex)">Save Changes</button>
+
+</form>
+
+</div>
+
+
+
+
+
+
+<p><a href="#/login">Logout</a></a></p>
+</body>
+</html>
